@@ -314,6 +314,16 @@ Deepest informational page. Long-form.
 
 **Architecture note:** This page is the template. Adding a new university = create a new content file at `src/content/universities/[slug].ts` with the same shape. The page template reads it and renders. No template code changes.
 
+#### 9.2.1 `/universities` Index Page
+Simple listing page shown when visitors land on `/universities` without a slug. Renders:
+- Page header ("Our Partner Universities in Kazakhstan")
+- Grid of university cards (one per entry in `src/content/universities/`)
+- Each card: photo, university name, city, key stats (est., ranking, fees), `View Details →` link
+- Below grid: "More universities coming soon" placeholder card
+- Final CTA band
+
+Today this page shows one card (Kokshetau). As new universities are added to `src/content/universities/`, they auto-appear in this grid — no template changes.
+
 ### 9.3 `/admission` (Admission + Fees + Eligibility Combined)
 **Blocks:** Hero · Interactive eligibility checklist (NEET, 50% PCB, age, passport) · Documents required (9 cards) · Expanded 5-step process · Full fee structure with payment schedule · Scholarships & loans placeholder · Timeline calendar (May–October) · FAQ · Apply CTA.
 
@@ -633,16 +643,27 @@ Every page gets:
 All above plus `email` (required), `whatsapp` (optional), `preferredUniversity` (dropdown), `message` (textarea ≤500 chars).
 
 ### 13.2 Validation (zod)
+
+Two schemas — the contact form schema extends the short form schema with a required email and optional extras.
+
 ```ts
+// Short form schema (used by hero + inline lead forms)
 export const leadFormSchema = z.object({
   fullName: z.string().min(2, "Please enter your full name"),
   phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian phone"),
   state: z.string().min(1, "Please select your state"),
   neetScore: z.number().min(0).max(720).optional(),
-  email: z.string().email("Enter a valid email").optional(),
   consent: z.literal(true, {
     errorMap: () => ({ message: "You must agree to continue" }),
   }),
+})
+
+// Contact page form — full version (email REQUIRED here)
+export const contactFormSchema = leadFormSchema.extend({
+  email: z.string().email("Enter a valid email"),
+  whatsapp: z.string().regex(/^[6-9]\d{9}$/).optional(),
+  preferredUniversity: z.string().optional(),
+  message: z.string().max(500, "Message too long").optional(),
 })
 ```
 
