@@ -43,8 +43,11 @@ const features = [
 
 export function WhyKokshetau() {
   return (
-    <section className="section-padding bg-background">
-      <div className="container-brand">
+    <section className="section-padding bg-background relative overflow-hidden">
+      {/* Decorative background shapes */}
+      <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gold/5 blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="container-brand relative z-10">
         <SectionHeader
           kicker="Why Kokshetau"
           title="A 62-year legacy that's genuinely affordable."

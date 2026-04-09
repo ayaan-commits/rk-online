@@ -23,7 +23,7 @@ export function FinalCta() {
             <Button
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+              className="bg-gold hover:bg-gold-dark text-navy font-semibold btn-fill-effect"
             >
               <Link href="/contact">
                 Book Free Counseling
@@ -32,9 +32,8 @@ export function FinalCta() {
             </Button>
             <Button
               asChild
-              variant="outline"
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10"
+              className="!bg-white !text-black !border-white hover:!bg-gray-100 font-medium"
             >
               <a href={`tel:${SITE.phone}`}>
                 <Phone className="mr-2 h-4 w-4" />

@@ -32,12 +32,14 @@ export function FeaturedUniversity() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* Left — Image placeholder */}
           <AnimateOnScroll direction="left">
-            <div className="bg-muted flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg">
-              <div className="text-muted-foreground text-center">
-                <GraduationCap className="mx-auto mb-3 h-16 w-16 opacity-30" />
-                <p className="text-sm">Campus photo placeholder</p>
-                <p className="text-xs opacity-60">
-                  Replace with real university photos
+            <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl border-2 border-gold/20 bg-gradient-to-br from-primary/90 to-primary/70">
+              <div className="text-center">
+                <GraduationCap className="mx-auto mb-4 h-32 w-32 text-gold opacity-20" />
+                <p className="font-heading text-2xl font-bold text-gold">
+                  Est. 1962
+                </p>
+                <p className="mt-1 text-sm text-white/60">
+                  Kokshetau State University
                 </p>
               </div>
             </div>

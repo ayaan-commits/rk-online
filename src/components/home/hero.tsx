@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { LeadForm } from "@/components/shared/lead-form"
 import { TrustBadge } from "@/components/shared/trust-badge"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight, ChevronDown, Download } from "lucide-react"
 import { motion } from "framer-motion"
 
 const floatingDots = [
@@ -50,11 +50,14 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
           {/* Left content */}
           <div className="text-white">
-            <span className="text-gold mb-4 inline-block text-sm font-semibold uppercase tracking-widest">
+            <span className="bg-gold/10 text-gold mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
               Study MBBS in Kazakhstan &middot; 2026 Intake Open
             </span>
             <h1 className="font-heading mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-[56px] lg:leading-[1.1]">
-              Your Medical Career Starts at{" "}
+              <span className="bg-gradient-to-r from-white via-gold/80 to-white bg-clip-text text-transparent">
+                Your Medical Career
+              </span>{" "}
+              Starts at{" "}
               <span className="text-gold">Kokshetau State University</span>.
             </h1>
             <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/80">
@@ -67,7 +70,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+                className="bg-gold hover:bg-gold-dark text-navy font-semibold btn-fill-effect"
               >
                 <Link href="/contact">
                   Apply for 2026 Intake
@@ -76,9 +79,8 @@ export function Hero() {
               </Button>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="border-white/30 text-white hover:bg-white/10"
+                className="!bg-white !text-black !border-white hover:!bg-gray-100 font-medium"
               >
                 <Link href="#fees">
                   <Download className="mr-2 h-4 w-4" />
@@ -100,19 +102,37 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Lead form card */}
-          <Card className="border-0 shadow-[0_0_80px_rgba(201,162,39,0.15)] shadow-2xl">
-            <CardHeader className="pb-2">
-              <CardTitle className="font-heading text-center text-xl">
-                Free Counseling &mdash; Talk to a Senior
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <LeadForm source="home_hero" />
-            </CardContent>
-          </Card>
+          {/* Right — Lead form card with radial glow */}
+          <div className="relative">
+            {/* Radial glow bloom effects */}
+            <div className="absolute -right-20 top-1/2 -translate-y-1/2 hidden lg:block">
+              <div className="h-[500px] w-[500px] rounded-full bg-gold/5 blur-3xl" />
+              <div className="absolute inset-[15%] rounded-full bg-gold/10 blur-2xl" />
+              <div className="absolute inset-[30%] rounded-full bg-gold/15 blur-xl" />
+            </div>
+
+            <Card className="relative z-10 border border-white/20 bg-white/95 shadow-[0_0_80px_rgba(201,162,39,0.15)] shadow-2xl backdrop-blur-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="font-heading text-center text-xl">
+                  Free Counseling &mdash; Talk to a Senior
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <LeadForm source="home_hero" />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
+
+      {/* Animated scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <ChevronDown className="h-6 w-6 text-white/40" />
+      </motion.div>
     </section>
   )
 }

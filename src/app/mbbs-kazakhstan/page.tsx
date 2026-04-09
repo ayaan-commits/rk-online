@@ -3,6 +3,7 @@ import Link from "next/link"
 import { SectionHeader } from "@/components/shared/section-header"
 import { LeadForm } from "@/components/shared/lead-form"
 import { TrustBadge } from "@/components/shared/trust-badge"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -335,25 +336,29 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="At a Glance"
-            title="Quick Facts — MBBS in Kazakhstan"
-            subtitle="Everything you need to know before you start your application."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="At a Glance"
+              title="Quick Facts — MBBS in Kazakhstan"
+              subtitle="Everything you need to know before you start your application."
+            />
+          </AnimateOnScroll>
 
           <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {QUICK_FACTS.map(({ icon: Icon, value, label }) => (
-              <Card key={label} className="text-center">
-                <CardContent className="pt-2">
-                  <div className="bg-gold/10 mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full">
-                    <Icon className="text-gold h-6 w-6" />
-                  </div>
-                  <p className="font-heading text-foreground text-xl font-bold">
-                    {value}
-                  </p>
-                  <p className="text-muted-foreground mt-1 text-sm">{label}</p>
-                </CardContent>
-              </Card>
+            {QUICK_FACTS.map(({ icon: Icon, value, label }, index) => (
+              <AnimateOnScroll key={label} delay={index * 0.08}>
+                <Card className="text-center">
+                  <CardContent className="pt-2">
+                    <div className="bg-gold/10 mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full">
+                      <Icon className="text-gold h-6 w-6" />
+                    </div>
+                    <p className="font-heading text-foreground text-xl font-bold">
+                      {value}
+                    </p>
+                    <p className="text-muted-foreground mt-1 text-sm">{label}</p>
+                  </CardContent>
+                </Card>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -364,15 +369,16 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-white">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Country Comparison"
-            title="Why Kazakhstan Beats the Competition"
-            subtitle="See how Kazakhstan compares to other popular MBBS destinations for Indian students."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Country Comparison"
+              title="Why Kazakhstan Beats the Competition"
+              subtitle="See how Kazakhstan compares to other popular MBBS destinations for Indian students."
+            />
 
-          <div className="mx-auto max-w-4xl">
-            <div className="overflow-hidden rounded-lg border border-border bg-white">
-              <Table>
+            <div className="mx-auto max-w-4xl">
+              <div className="overflow-hidden rounded-lg border border-border bg-white">
+                <Table>
                 <TableHeader>
                   <TableRow className="bg-[#0A1F44] hover:bg-[#0A1F44]">
                     <TableHead className="text-white font-semibold">
@@ -410,14 +416,15 @@ export default function MbbsKazakhstanPage() {
               </Table>
             </div>
 
-            <p className="text-muted-foreground mt-6 text-center text-sm leading-relaxed">
-              Kazakhstan offers the best combination of affordability, quality of
-              education, NMC recognition, and student safety among all major
-              MBBS-abroad destinations. The growing Indian community and
-              English-medium instruction make the transition significantly
-              smoother.
-            </p>
-          </div>
+              <p className="text-muted-foreground mt-6 text-center text-sm leading-relaxed">
+                Kazakhstan offers the best combination of affordability, quality of
+                education, NMC recognition, and student safety among all major
+                MBBS-abroad destinations. The growing Indian community and
+                English-medium instruction make the transition significantly
+                smoother.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -426,37 +433,39 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Am I Eligible?"
-            title="Eligibility Criteria for Indian Students"
-            subtitle="Meet these requirements to pursue MBBS in Kazakhstan for the 2026 intake."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Am I Eligible?"
+              title="Eligibility Criteria for Indian Students"
+              subtitle="Meet these requirements to pursue MBBS in Kazakhstan for the 2026 intake."
+            />
 
-          <div className="mx-auto max-w-2xl">
-            <Card>
-              <CardContent className="pt-2">
-                <ul className="space-y-4">
-                  {ELIGIBILITY_ITEMS.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle className="text-success mt-0.5 h-5 w-5 shrink-0" />
-                      <span className="text-foreground text-base leading-relaxed">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-gold/5 border-gold/20 mt-6 rounded-lg border p-4">
-                  <p className="text-foreground text-sm leading-relaxed">
-                    <strong>Note for reserved categories:</strong> SC, ST, and
-                    OBC candidates need a minimum of 40% aggregate in Physics,
-                    Chemistry, and Biology in 10+2, as per NMC guidelines. A
-                    valid NEET scorecard is still mandatory regardless of
-                    category.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <div className="mx-auto max-w-2xl">
+              <Card>
+                <CardContent className="pt-2">
+                  <ul className="space-y-4">
+                    {ELIGIBILITY_ITEMS.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <CheckCircle className="text-success mt-0.5 h-5 w-5 shrink-0" />
+                        <span className="text-foreground text-base leading-relaxed">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="bg-gold/5 border-gold/20 mt-6 rounded-lg border p-4">
+                    <p className="text-foreground text-sm leading-relaxed">
+                      <strong>Note for reserved categories:</strong> SC, ST, and
+                      OBC candidates need a minimum of 40% aggregate in Physics,
+                      Chemistry, and Biology in 10+2, as per NMC guidelines. A
+                      valid NEET scorecard is still mandatory regardless of
+                      category.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -465,33 +474,37 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-white">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Step by Step"
-            title="Admission Process — NEET to Campus in 5 Steps"
-            subtitle="We handle the paperwork. You focus on your future."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Step by Step"
+              title="Admission Process — NEET to Campus in 5 Steps"
+              subtitle="We handle the paperwork. You focus on your future."
+            />
+          </AnimateOnScroll>
 
           <div className="mx-auto max-w-3xl space-y-6">
             {ADMISSION_STEPS.map(
               ({ icon: Icon, step, title, description }) => (
-                <Card key={step} className="transition-shadow hover:shadow-md">
-                  <CardContent className="flex items-start gap-5 pt-2">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gold/10">
-                      <Icon className="text-gold h-6 w-6" />
-                    </div>
-                    <div>
-                      <p className="text-gold mb-1 text-xs font-semibold uppercase tracking-wider">
-                        Step {step}
-                      </p>
-                      <h3 className="font-heading text-foreground mb-1 text-lg font-semibold">
-                        {title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+                <AnimateOnScroll key={step} delay={step * 0.1}>
+                  <Card className="transition-shadow hover:shadow-md">
+                    <CardContent className="flex items-start gap-5 pt-2">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gold/10">
+                        <Icon className="text-gold h-6 w-6" />
+                      </div>
+                      <div>
+                        <p className="text-gold mb-1 text-xs font-semibold uppercase tracking-wider">
+                          Step {step}
+                        </p>
+                        <h3 className="font-heading text-foreground mb-1 text-lg font-semibold">
+                          {title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
               )
             )}
           </div>
@@ -503,14 +516,15 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Our Partner University"
-            title="Kokshetau State University"
-            subtitle="Est. 1962 — One of Kazakhstan's most established universities with 62+ years of academic excellence."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Our Partner University"
+              title="Kokshetau State University"
+              subtitle="Est. 1962 — One of Kazakhstan's most established universities with 62+ years of academic excellence."
+            />
 
-          <div className="mx-auto max-w-3xl">
-            <Card className="overflow-hidden">
+            <div className="mx-auto max-w-3xl">
+              <Card className="overflow-hidden">
               <div className="bg-muted flex aspect-[16/7] items-center justify-center">
                 <div className="text-muted-foreground text-center">
                   <Building className="mx-auto mb-3 h-16 w-16 opacity-30" />
@@ -545,9 +559,10 @@ export default function MbbsKazakhstanPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-              </CardContent>
-            </Card>
-          </div>
+                </CardContent>
+              </Card>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -556,15 +571,16 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section id="fees" className="section-padding bg-white">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Transparent Pricing"
-            title="Year-by-Year Fee Breakdown"
-            subtitle="Complete fee structure for MBBS at Kokshetau State University. No hidden charges, no donations."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Transparent Pricing"
+              title="Year-by-Year Fee Breakdown"
+              subtitle="Complete fee structure for MBBS at Kokshetau State University. No hidden charges, no donations."
+            />
 
-          <div className="mx-auto max-w-3xl">
-            <div className="overflow-hidden rounded-lg border border-border bg-white">
-              <Table>
+            <div className="mx-auto max-w-3xl">
+              <div className="overflow-hidden rounded-lg border border-border bg-white">
+                <Table>
                 <TableHeader>
                   <TableRow className="bg-[#0A1F44] hover:bg-[#0A1F44]">
                     <TableHead className="text-white font-semibold">
@@ -612,12 +628,13 @@ export default function MbbsKazakhstanPage() {
               </Table>
             </div>
 
-            <p className="text-muted-foreground mt-4 text-center text-sm">
-              Fees shown are indicative for the 2026 intake. Actual amounts may
-              vary slightly based on exchange rates. One-time admission fee of
-              ~$300 applies in Year 1. No donation or capitation fees.
-            </p>
-          </div>
+              <p className="text-muted-foreground mt-4 text-center text-sm">
+                Fees shown are indicative for the 2026 intake. Actual amounts may
+                vary slightly based on exchange rates. One-time admission fee of
+                ~$300 applies in Year 1. No donation or capitation fees.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -626,26 +643,28 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Your Questions Answered"
-            title="Frequently Asked Questions — MBBS in Kazakhstan"
-            subtitle="Detailed answers to the most common questions from Indian students and parents."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Your Questions Answered"
+              title="Frequently Asked Questions — MBBS in Kazakhstan"
+              subtitle="Detailed answers to the most common questions from Indian students and parents."
+            />
 
-          <div className="mx-auto max-w-3xl">
-            <Accordion className="w-full">
-              {FAQS.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`}>
-                  <AccordionTrigger className="text-foreground text-left font-semibold">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+            <div className="mx-auto max-w-3xl">
+              <Accordion className="w-full">
+                {FAQS.map((faq, index) => (
+                  <AccordionItem key={index} value={`faq-${index}`}>
+                    <AccordionTrigger className="text-foreground text-left font-semibold">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -654,36 +673,37 @@ export default function MbbsKazakhstanPage() {
       {/* ------------------------------------------------------------------ */}
       <section id="apply" className="bg-navy-gradient py-16 md:py-20">
         <div className="container-brand text-center">
-          <h2 className="font-heading mb-4 text-3xl font-bold text-white md:text-4xl">
-            Ready to Start Your MBBS Journey in Kazakhstan?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">
-            The September 2026 intake is open. Speak with a senior student who
-            studied in Kazakhstan and get honest, first-hand guidance on
-            everything from fees to campus life.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gold hover:bg-gold-dark text-navy font-semibold"
-            >
-              <Link href="/contact">
-                Apply Now &mdash; Free Counseling
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10"
-            >
-              <a href={`tel:${SITE.phone}`}>
-                Call {SITE.phone}
-              </a>
-            </Button>
-          </div>
+          <AnimateOnScroll>
+            <h2 className="font-heading mb-4 text-3xl font-bold text-white md:text-4xl">
+              Ready to Start Your MBBS Journey in Kazakhstan?
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">
+              The September 2026 intake is open. Speak with a senior student who
+              studied in Kazakhstan and get honest, first-hand guidance on
+              everything from fees to campus life.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+              >
+                <Link href="/contact">
+                  Apply Now &mdash; Free Counseling
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="!bg-white !text-black !border-white hover:!bg-gray-100 font-medium"
+              >
+                <a href={`tel:${SITE.phone}`}>
+                  Call {SITE.phone}
+                </a>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </>

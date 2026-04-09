@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { SectionHeader } from "@/components/shared/section-header"
 import { LeadForm } from "@/components/shared/lead-form"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -310,41 +311,43 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Am I Eligible?"
-            title="Eligibility Checklist"
-            subtitle="You need to meet all of the following criteria to be eligible for MBBS admission in Kazakhstan."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Am I Eligible?"
+              title="Eligibility Checklist"
+              subtitle="You need to meet all of the following criteria to be eligible for MBBS admission in Kazakhstan."
+            />
 
-          <div className="mx-auto max-w-2xl">
-            <Card>
-              <CardContent className="pt-2">
-                <ul className="space-y-5">
-                  {ELIGIBILITY_ITEMS.map(({ label, detail }) => (
-                    <li key={label} className="flex items-start gap-3">
-                      <CheckCircle className="text-success mt-0.5 h-5 w-5 shrink-0" />
-                      <div>
-                        <p className="text-foreground font-semibold">
-                          {label}
-                        </p>
-                        <p className="text-muted-foreground mt-0.5 text-sm leading-relaxed">
-                          {detail}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-gold/5 border-gold/20 mt-6 rounded-lg border p-4">
-                  <p className="text-foreground text-sm leading-relaxed">
-                    <strong>Reserved categories:</strong> SC, ST, and OBC
-                    candidates need only 40% aggregate in PCB (10+2) as per NMC
-                    guidelines. NEET qualification remains mandatory for all
-                    categories.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <div className="mx-auto max-w-2xl">
+              <Card>
+                <CardContent className="pt-2">
+                  <ul className="space-y-5">
+                    {ELIGIBILITY_ITEMS.map(({ label, detail }) => (
+                      <li key={label} className="flex items-start gap-3">
+                        <CheckCircle className="text-success mt-0.5 h-5 w-5 shrink-0" />
+                        <div>
+                          <p className="text-foreground font-semibold">
+                            {label}
+                          </p>
+                          <p className="text-muted-foreground mt-0.5 text-sm leading-relaxed">
+                            {detail}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="bg-gold/5 border-gold/20 mt-6 rounded-lg border p-4">
+                    <p className="text-foreground text-sm leading-relaxed">
+                      <strong>Reserved categories:</strong> SC, ST, and OBC
+                      candidates need only 40% aggregate in PCB (10+2) as per NMC
+                      guidelines. NEET qualification remains mandatory for all
+                      categories.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -353,30 +356,34 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-white">
         <div className="container-brand">
-          <SectionHeader
-            kicker="What You Need"
-            title="Documents Required"
-            subtitle="Prepare these documents before starting your application. We verify everything for you."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="What You Need"
+              title="Documents Required"
+              subtitle="Prepare these documents before starting your application. We verify everything for you."
+            />
+          </AnimateOnScroll>
 
-          <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {DOCUMENTS.map((doc) => (
-              <Card key={doc} className="transition-shadow hover:shadow-md">
-                <CardContent className="flex items-center gap-3 pt-2">
-                  <div className="bg-gold/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                    <FileText className="text-gold h-5 w-5" />
-                  </div>
-                  <p className="text-foreground text-sm font-medium">{doc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <AnimateOnScroll delay={0.1}>
+            <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {DOCUMENTS.map((doc) => (
+                <Card key={doc} className="transition-shadow hover:shadow-md">
+                  <CardContent className="flex items-center gap-3 pt-2">
+                    <div className="bg-gold/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
+                      <FileText className="text-gold h-5 w-5" />
+                    </div>
+                    <p className="text-foreground text-sm font-medium">{doc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-          <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed">
-            All documents should be original or notarized copies. Apostille
-            (MEA attestation) may be required for some documents. We guide you
-            through the attestation process.
-          </p>
+            <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed">
+              All documents should be original or notarized copies. Apostille
+              (MEA attestation) may be required for some documents. We guide you
+              through the attestation process.
+            </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -385,40 +392,44 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="The Complete Process"
-            title="5-Step Admission Journey"
-            subtitle="We handle the logistics so you can focus on starting your medical career."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="The Complete Process"
+              title="5-Step Admission Journey"
+              subtitle="We handle the logistics so you can focus on starting your medical career."
+            />
+          </AnimateOnScroll>
 
           <div className="mx-auto max-w-3xl space-y-8">
             {PROCESS_STEPS.map(
               ({ icon: Icon, step, title, description, timeline }) => (
-                <Card key={step} className="transition-shadow hover:shadow-md">
-                  <CardContent className="pt-2">
-                    <div className="flex items-start gap-5">
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gold/10">
-                        <Icon className="text-gold h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="mb-2 flex flex-wrap items-center gap-3">
-                          <span className="bg-navy text-primary-foreground inline-flex h-6 items-center rounded-full px-2.5 text-xs font-semibold">
-                            Step {step}
-                          </span>
-                          <span className="text-gold text-xs font-semibold uppercase tracking-wider">
-                            {timeline}
-                          </span>
+                <AnimateOnScroll key={step} delay={step * 0.1}>
+                  <Card className="transition-shadow hover:shadow-md">
+                    <CardContent className="pt-2">
+                      <div className="flex items-start gap-5">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gold/10">
+                          <Icon className="text-gold h-6 w-6" />
                         </div>
-                        <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">
-                          {title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {description}
-                        </p>
+                        <div className="flex-1">
+                          <div className="mb-2 flex flex-wrap items-center gap-3">
+                            <span className="bg-navy text-primary-foreground inline-flex h-6 items-center rounded-full px-2.5 text-xs font-semibold">
+                              Step {step}
+                            </span>
+                            <span className="text-gold text-xs font-semibold uppercase tracking-wider">
+                              {timeline}
+                            </span>
+                          </div>
+                          <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">
+                            {title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            {description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
               )
             )}
           </div>
@@ -430,16 +441,17 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-white">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Transparent Pricing"
-            title="Fee Structure & Payment Schedule"
-            subtitle="What you see is what you pay. No donations, no capitation, no hidden charges."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Transparent Pricing"
+              title="Fee Structure & Payment Schedule"
+              subtitle="What you see is what you pay. No donations, no capitation, no hidden charges."
+            />
 
-          <div className="mx-auto max-w-3xl space-y-10">
-            {/* Fee table */}
-            <div className="overflow-hidden rounded-lg border border-border bg-white">
-              <Table>
+            <div className="mx-auto max-w-3xl space-y-10">
+              {/* Fee table */}
+              <div className="overflow-hidden rounded-lg border border-border bg-white">
+                <Table>
                 <TableHeader>
                   <TableRow className="bg-[#0A1F44] hover:bg-[#0A1F44]">
                     <TableHead className="text-white font-semibold">
@@ -510,12 +522,13 @@ export default function AdmissionPage() {
               </div>
             </div>
 
-            <p className="text-muted-foreground text-center text-sm">
-              Fees are indicative for the 2026 intake and subject to minor
-              variations based on exchange rates. All payments are made directly
-              to the university.
-            </p>
-          </div>
+              <p className="text-muted-foreground text-center text-sm">
+                Fees are indicative for the 2026 intake and subject to minor
+                variations based on exchange rates. All payments are made directly
+                to the university.
+              </p>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -524,13 +537,16 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Financial Support"
-            title="Scholarships & Education Loans"
-            subtitle="Explore financing options to fund your MBBS journey in Kazakhstan."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Financial Support"
+              title="Scholarships & Education Loans"
+              subtitle="Explore financing options to fund your MBBS journey in Kazakhstan."
+            />
+          </AnimateOnScroll>
 
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+          <AnimateOnScroll delay={0.1}>
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {/* Scholarships */}
             <Card>
               <CardContent className="pt-2">
@@ -580,8 +596,9 @@ export default function AdmissionPage() {
                   </p>
                 </div>
               </CardContent>
-            </Card>
-          </div>
+              </Card>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -590,11 +607,13 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-white">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Plan Your Year"
-            title="2026 Admission Timeline"
-            subtitle="Month-by-month roadmap from application to arrival."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Plan Your Year"
+              title="2026 Admission Timeline"
+              subtitle="Month-by-month roadmap from application to arrival."
+            />
+          </AnimateOnScroll>
 
           <div className="mx-auto max-w-3xl">
             <div className="relative space-y-0">
@@ -605,25 +624,27 @@ export default function AdmissionPage() {
               />
 
               {TIMELINE_MONTHS.map(({ month, title, description }, index) => (
-                <div key={month} className="group relative flex gap-5 py-5">
-                  {/* Timeline dot */}
-                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gold/10">
-                    <CalendarDays className="text-gold h-6 w-6" />
-                  </div>
+                <AnimateOnScroll key={month} delay={index * 0.1}>
+                  <div className="group relative flex gap-5 py-5">
+                    {/* Timeline dot */}
+                    <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gold/10">
+                      <CalendarDays className="text-gold h-6 w-6" />
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 pb-2">
-                    <span className="text-gold text-xs font-semibold uppercase tracking-wider">
-                      {month}
-                    </span>
-                    <h3 className="font-heading text-foreground mt-1 text-lg font-semibold">
-                      {title}
-                    </h3>
-                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
-                      {description}
-                    </p>
+                    {/* Content */}
+                    <div className="flex-1 pb-2">
+                      <span className="text-gold text-xs font-semibold uppercase tracking-wider">
+                        {month}
+                      </span>
+                      <h3 className="font-heading text-foreground mt-1 text-lg font-semibold">
+                        {title}
+                      </h3>
+                      <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                        {description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>
@@ -635,26 +656,28 @@ export default function AdmissionPage() {
       {/* ------------------------------------------------------------------ */}
       <section className="section-padding bg-background">
         <div className="container-brand">
-          <SectionHeader
-            kicker="Common Questions"
-            title="Admission FAQs"
-            subtitle="Answers to the most common questions about the MBBS admission process."
-          />
+          <AnimateOnScroll>
+            <SectionHeader
+              kicker="Common Questions"
+              title="Admission FAQs"
+              subtitle="Answers to the most common questions about the MBBS admission process."
+            />
 
-          <div className="mx-auto max-w-3xl">
-            <Accordion className="w-full">
-              {FAQS.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`}>
-                  <AccordionTrigger className="text-foreground text-left font-semibold">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+            <div className="mx-auto max-w-3xl">
+              <Accordion className="w-full">
+                {FAQS.map((faq, index) => (
+                  <AccordionItem key={index} value={`faq-${index}`}>
+                    <AccordionTrigger className="text-foreground text-left font-semibold">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -676,26 +699,28 @@ export default function AdmissionPage() {
         />
 
         <div className="container-brand relative z-10">
-          <div className="mx-auto max-w-xl text-center">
-            <h2 className="font-heading mb-4 text-3xl font-bold text-white md:text-4xl">
-              Ready to Start Your MBBS Application?
-            </h2>
-            <p className="mb-8 text-lg text-white/80">
-              Fill in your details below and a senior student will call you
-              within 24 hours with honest, first-hand guidance.
-            </p>
+          <AnimateOnScroll>
+            <div className="mx-auto max-w-xl text-center">
+              <h2 className="font-heading mb-4 text-3xl font-bold text-white md:text-4xl">
+                Ready to Start Your MBBS Application?
+              </h2>
+              <p className="mb-8 text-lg text-white/80">
+                Fill in your details below and a senior student will call you
+                within 24 hours with honest, first-hand guidance.
+              </p>
 
-            <Card className="border-0 text-left shadow-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="font-heading text-center text-xl">
-                  Apply for 2026 Intake
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <LeadForm source="admission_page" />
-              </CardContent>
-            </Card>
-          </div>
+              <Card className="border-0 text-left shadow-2xl">
+                <CardHeader className="pb-2">
+                  <CardTitle className="font-heading text-center text-xl">
+                    Apply for 2026 Intake
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <LeadForm source="admission_page" />
+                </CardContent>
+              </Card>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </>

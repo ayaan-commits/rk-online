@@ -1,18 +1,31 @@
+"use client"
+
 import { RECOGNITIONS } from "@/lib/constants"
-import { TrustBadge } from "@/components/shared/trust-badge"
-import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
+import { CheckCircle } from "lucide-react"
 
 export function TrustStrip() {
+  // Double the items for seamless loop
+  const items = [...RECOGNITIONS, ...RECOGNITIONS]
+
   return (
-    <section className="border-b border-border bg-white py-6">
-      <div className="container-brand">
-        <AnimateOnScroll direction="none" delay={0}>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            {RECOGNITIONS.map((rec) => (
-              <TrustBadge key={rec.name} label={rec.label} />
-            ))}
-          </div>
-        </AnimateOnScroll>
+    <section className="border-y border-border bg-white py-4 overflow-hidden">
+      <div className="relative flex">
+        <div className="animate-marquee flex shrink-0 items-center gap-12">
+          {items.map((rec, i) => (
+            <div key={`${rec.name}-${i}`} className="flex items-center gap-2 whitespace-nowrap">
+              <CheckCircle className="h-4 w-4 text-green-600" />
+              <span className="text-sm font-semibold text-foreground">{rec.label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="animate-marquee flex shrink-0 items-center gap-12" aria-hidden="true">
+          {items.map((rec, i) => (
+            <div key={`dup-${rec.name}-${i}`} className="flex items-center gap-2 whitespace-nowrap">
+              <CheckCircle className="h-4 w-4 text-green-600" />
+              <span className="text-sm font-semibold text-foreground">{rec.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

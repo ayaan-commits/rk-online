@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import { kokshetau } from "@/content/universities/kokshetau"
 import { SITE } from "@/lib/constants"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -46,7 +47,8 @@ export default function UniversitiesPage() {
       {/* University Grid */}
       <section className="section-padding bg-cream">
         <div className="container-brand">
-          <div className="grid gap-8 md:grid-cols-2">
+          <AnimateOnScroll>
+            <div className="grid gap-8 md:grid-cols-2">
             {/* Kokshetau Card */}
             <Card className="flex flex-col overflow-hidden border-0 shadow-md">
               {/* Placeholder image area */}
@@ -122,40 +124,43 @@ export default function UniversitiesPage() {
                 Kazakhstan and Central Asia.
               </p>
             </Card>
-          </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* CTA Band */}
       <section className="bg-navy-gradient section-padding text-white">
         <div className="container-brand text-center">
-          <h2 className="font-heading text-2xl font-bold md:text-3xl">
-            Interested in studying MBBS?
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-lg text-white/80">
-            Get free counseling from senior medical students who have been
-            through the journey themselves.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gold hover:bg-gold-dark h-12 px-8 text-base font-semibold text-white"
-            >
-              <Link href="/admission">Get Free Counseling</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-12 border-white/30 px-8 text-base text-white hover:bg-white/10"
-            >
-              <a href={`tel:${SITE.phone}`}>
-                <Phone className="mr-2 h-4 w-4" />
-                Call Us
-              </a>
-            </Button>
-          </div>
+          <AnimateOnScroll>
+            <h2 className="font-heading text-2xl font-bold md:text-3xl">
+              Interested in studying MBBS?
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-lg text-white/80">
+              Get free counseling from senior medical students who have been
+              through the journey themselves.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gold hover:bg-gold-dark h-12 px-8 text-base font-semibold text-white"
+              >
+                <Link href="/admission">Get Free Counseling</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-12 border-white/30 px-8 text-base text-white hover:bg-white/10"
+              >
+                <a href={`tel:${SITE.phone}`}>
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call Us
+                </a>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </>

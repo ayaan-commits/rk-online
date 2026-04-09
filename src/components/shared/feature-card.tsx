@@ -19,14 +19,14 @@ export function FeatureCard({
   return (
     <div
       className={cn(
-        "group rounded-lg border border-border bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-md",
+        "group rounded-lg border border-border/50 bg-white/80 backdrop-blur-sm p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-gold/30 hover:bg-white",
         className
       )}
     >
-      <div className="bg-gold/10 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full">
-        <IconComponent className="text-gold h-6 w-6" />
+      <div className="bg-gradient-to-br from-gold/20 to-gold/5 mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full">
+        <IconComponent className="text-gold h-7 w-7" />
       </div>
-      <h3 className="font-heading text-foreground mb-2 text-lg font-bold">
+      <h3 className="font-heading text-foreground mb-2 text-lg font-bold group-hover:text-gold transition-colors duration-300">
         {title}
       </h3>
       <p className="text-muted-foreground text-sm leading-relaxed">

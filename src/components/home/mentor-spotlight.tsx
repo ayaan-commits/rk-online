@@ -18,8 +18,9 @@ const differentiators = [
 
 export function MentorSpotlight() {
   return (
-    <section className="section-padding bg-background">
-      <div className="container-brand">
+    <section className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-gold/5 to-transparent hidden lg:block" />
+      <div className="container-brand relative z-10">
         <SectionHeader
           kicker="Why RK Online"
           title="Guided by people who actually lived it."

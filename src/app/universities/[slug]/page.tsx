@@ -18,6 +18,7 @@ import {
   Handshake,
 } from "lucide-react"
 import { kokshetau } from "@/content/universities/kokshetau"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import {
@@ -131,7 +132,8 @@ export default async function UniversityDetailPage({
       {/* ============================================================ */}
       <section className="section-padding bg-cream">
         <div className="container-brand">
-          <Tabs defaultValue="overview">
+          <AnimateOnScroll>
+            <Tabs defaultValue="overview">
             <TabsList
               variant="line"
               className="mb-8 flex w-full flex-wrap gap-1"
@@ -191,7 +193,8 @@ export default async function UniversityDetailPage({
             <TabsContent value="faq">
               <FaqTab uni={uni} />
             </TabsContent>
-          </Tabs>
+            </Tabs>
+          </AnimateOnScroll>
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import remarkGfm from "remark-gfm"
 import { getAllSlugs, getPostBySlug, getAllPosts } from "@/lib/blog"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -93,78 +94,86 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Content */}
       <article className="section-padding bg-background">
         <div className="container-brand max-w-3xl">
-          <div className="prose prose-lg prose-slate max-w-none prose-headings:font-heading prose-headings:text-foreground prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:border prose-th:bg-primary prose-th:text-primary-foreground prose-th:p-3 prose-td:p-3 prose-td:border">
-            <MDXRemote
-              source={post.content}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                },
-              }}
-            />
-          </div>
+          <AnimateOnScroll direction="none">
+            <div className="prose prose-lg prose-slate max-w-none prose-headings:font-heading prose-headings:text-foreground prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:border prose-th:bg-primary prose-th:text-primary-foreground prose-th:p-3 prose-td:p-3 prose-td:border">
+              <MDXRemote
+                source={post.content}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm],
+                  },
+                }}
+              />
+            </div>
+          </AnimateOnScroll>
 
           <Separator className="my-12" />
 
           {/* Author Box */}
-          <div className="flex items-center gap-4 rounded-lg border border-border bg-white p-6">
-            <div className="bg-primary flex h-14 w-14 shrink-0 items-center justify-center rounded-full">
-              <User className="text-primary-foreground h-7 w-7" />
+          <AnimateOnScroll>
+            <div className="flex items-center gap-4 rounded-lg border border-border bg-white p-6">
+              <div className="bg-primary flex h-14 w-14 shrink-0 items-center justify-center rounded-full">
+                <User className="text-primary-foreground h-7 w-7" />
+              </div>
+              <div>
+                <p className="font-heading text-foreground font-semibold">
+                  {post.meta.author}
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  Helping Indian students build medical careers at NMC-approved
+                  universities in Kazakhstan.
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="font-heading text-foreground font-semibold">
-                {post.meta.author}
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Helping Indian students build medical careers at NMC-approved
-                universities in Kazakhstan.
-              </p>
-            </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
-            <div className="mt-12">
-              <h2 className="font-heading text-foreground mb-6 text-2xl font-bold">
-                Related Articles
-              </h2>
-              <div className="grid gap-4 md:grid-cols-3">
-                {relatedPosts.map((related) => (
-                  <Link
-                    key={related.slug}
-                    href={`/blog/${related.slug}`}
-                    className="group rounded-lg border border-border bg-white p-4 transition-all hover:shadow-sm"
-                  >
-                    <p className="font-heading text-foreground mb-2 text-sm font-semibold leading-tight group-hover:text-gold">
-                      {related.title}
-                    </p>
-                    <p className="text-muted-foreground text-xs">
-                      {related.readingTime}
-                    </p>
-                  </Link>
-                ))}
+            <AnimateOnScroll>
+              <div className="mt-12">
+                <h2 className="font-heading text-foreground mb-6 text-2xl font-bold">
+                  Related Articles
+                </h2>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {relatedPosts.map((related) => (
+                    <Link
+                      key={related.slug}
+                      href={`/blog/${related.slug}`}
+                      className="group rounded-lg border border-border bg-white p-4 transition-all hover:shadow-sm"
+                    >
+                      <p className="font-heading text-foreground mb-2 text-sm font-semibold leading-tight group-hover:text-gold">
+                        {related.title}
+                      </p>
+                      <p className="text-muted-foreground text-xs">
+                        {related.readingTime}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimateOnScroll>
           )}
 
           {/* CTA */}
-          <div className="mt-12 rounded-lg bg-navy-gradient p-8 text-center">
-            <h3 className="font-heading mb-3 text-xl font-bold text-white">
-              Talk to us about MBBS in Kazakhstan
-            </h3>
-            <p className="mb-4 text-sm text-white/80">
-              Free counseling from seniors who actually studied there.
-            </p>
-            <Button
-              asChild
-              className="bg-gold hover:bg-gold-dark text-navy font-semibold"
-            >
-              <Link href="/contact">
-                Get Free Counseling
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
+          <AnimateOnScroll>
+            <div className="mt-12 rounded-lg bg-navy-gradient p-8 text-center">
+              <h3 className="font-heading mb-3 text-xl font-bold text-white">
+                Talk to us about MBBS in Kazakhstan
+              </h3>
+              <p className="mb-4 text-sm text-white/80">
+                Free counseling from seniors who actually studied there.
+              </p>
+              <Button
+                asChild
+                className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+              >
+                <Link href="/contact">
+                  Get Free Counseling
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </div>
       </article>
     </>
