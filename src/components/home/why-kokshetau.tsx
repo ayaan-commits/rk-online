@@ -1,5 +1,6 @@
 import { SectionHeader } from "@/components/shared/section-header"
 import { FeatureCard } from "@/components/shared/feature-card"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 
 const features = [
   {
@@ -50,8 +51,10 @@ export function WhyKokshetau() {
           subtitle="Everything you need to know about studying MBBS at Kokshetau State University, in six points."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} {...feature} />
+          {features.map((feature, index) => (
+            <AnimateOnScroll key={feature.title} delay={index * 0.1}>
+              <FeatureCard {...feature} />
+            </AnimateOnScroll>
           ))}
         </div>
       </div>

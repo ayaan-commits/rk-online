@@ -1,8 +1,9 @@
 "use client"
 
+import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Phone, ChevronDown } from "lucide-react"
+import { Phone, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -16,6 +17,22 @@ import { MobileNav } from "@/components/layout/mobile-nav"
 
 export function Header() {
   const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const filteredLinks = useMemo(
+    () => NAV_LINKS.filter((link) => link.href !== "/"),
+    []
+  )
+
+  useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 10)
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   function isActive(href: string): boolean {
     if (href === "/") {
@@ -29,14 +46,21 @@ export function Header() {
   )
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/60">
-      <div className="container-brand flex h-16 items-center justify-between">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        isScrolled
+          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          : "bg-white"
+      )}
+    >
+      <div className="container-brand flex h-18 items-center justify-between">
         {/* Brand */}
-        <Link
-          href="/"
-          className="font-heading text-xl font-bold text-primary"
-        >
-          RK Online
+        <Link href="/" className="group relative flex flex-col items-start">
+          <span className="font-heading text-2xl font-bold tracking-tight text-primary">
+            RK Online
+          </span>
+          <span className="mt-0.5 h-[3px] w-6 rounded-full bg-gold transition-all duration-300 group-hover:w-full" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -44,18 +68,21 @@ export function Header() {
           className="hidden items-center gap-1 lg:flex"
           aria-label="Main navigation"
         >
-          {NAV_LINKS.map((link) => (
+          {filteredLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-gold",
+                "relative rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-gold",
                 isActive(link.href)
-                  ? "font-medium text-gold"
+                  ? "text-gold"
                   : "text-foreground/80"
               )}
             >
               {link.label}
+              {isActive(link.href) && (
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-gold" />
+              )}
             </Link>
           ))}
 
@@ -63,14 +90,17 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger
               className={cn(
-                "inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-gold",
+                "relative inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-gold",
                 isUniversityActive
-                  ? "font-medium text-gold"
+                  ? "text-gold"
                   : "text-foreground/80"
               )}
             >
               Universities
               <ChevronDown className="size-3.5" />
+              {isUniversityActive && (
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-gold" />
+              )}
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="start" sideOffset={8}>
@@ -78,8 +108,8 @@ export function Header() {
                 <DropdownMenuItem
                   key={uni.href}
                   className={cn(
-                    "cursor-pointer",
-                    pathname === uni.href && "text-gold font-medium"
+                    "cursor-pointer border-l-2 border-transparent pl-3 transition-colors hover:border-gold",
+                    pathname === uni.href && "text-gold font-medium border-gold"
                   )}
                   render={<Link href={uni.href} />}
                 >
@@ -104,14 +134,23 @@ export function Header() {
 
           {/* Apply Now Button */}
           <Button
-            className="hidden bg-gold text-navy hover:bg-gold-dark sm:inline-flex"
+            className="hidden rounded-full bg-gold text-navy shadow-md hover:bg-gold-dark hover:shadow-lg sm:inline-flex"
             render={<Link href="/contact" />}
           >
             Apply Now
           </Button>
 
-          {/* Mobile Hamburger */}
-          <MobileNav />
+          {/* Mobile Hamburger — toggles between Menu and X */}
+          <MobileNav open={mobileOpen} onOpenChange={setMobileOpen}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden"
+              aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </Button>
+          </MobileNav>
         </div>
       </div>
     </header>

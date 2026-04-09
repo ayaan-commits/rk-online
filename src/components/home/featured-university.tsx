@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { SectionHeader } from "@/components/shared/section-header"
 import { Button } from "@/components/ui/button"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import {
   MapPin,
   GraduationCap,
@@ -30,18 +31,20 @@ export function FeaturedUniversity() {
 
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* Left — Image placeholder */}
-          <div className="bg-muted flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg">
-            <div className="text-muted-foreground text-center">
-              <GraduationCap className="mx-auto mb-3 h-16 w-16 opacity-30" />
-              <p className="text-sm">Campus photo placeholder</p>
-              <p className="text-xs opacity-60">
-                Replace with real university photos
-              </p>
+          <AnimateOnScroll direction="left">
+            <div className="bg-muted flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg">
+              <div className="text-muted-foreground text-center">
+                <GraduationCap className="mx-auto mb-3 h-16 w-16 opacity-30" />
+                <p className="text-sm">Campus photo placeholder</p>
+                <p className="text-xs opacity-60">
+                  Replace with real university photos
+                </p>
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Right — Facts */}
-          <div>
+          <AnimateOnScroll direction="right">
             <ul className="mb-8 space-y-4">
               {facts.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-3">
@@ -58,7 +61,7 @@ export function FeaturedUniversity() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

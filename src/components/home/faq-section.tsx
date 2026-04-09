@@ -1,4 +1,5 @@
 import { SectionHeader } from "@/components/shared/section-header"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import {
   Accordion,
   AccordionContent,
@@ -58,20 +59,22 @@ export function FaqSection() {
           title="Everything you're wondering, answered."
         />
 
-        <div className="mx-auto max-w-3xl">
-          <Accordion className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-foreground text-left font-semibold">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <AnimateOnScroll>
+          <div className="mx-auto max-w-3xl">
+            <Accordion className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-foreground text-left font-semibold">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   )

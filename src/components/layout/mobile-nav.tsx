@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, Phone } from "lucide-react"
+import { Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -16,28 +16,29 @@ import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { NAV_LINKS, UNIVERSITY_NAV, SITE } from "@/lib/constants"
 
-export function MobileNav() {
-  const [open, setOpen] = useState(false)
+interface MobileNavProps {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  children: React.ReactNode
+}
+
+export function MobileNav({ open, onOpenChange, children }: MobileNavProps) {
   const pathname = usePathname()
 
+  const filteredLinks = useMemo(
+    () => NAV_LINKS.filter((link) => link.href !== "/"),
+    []
+  )
+
   function handleLinkClick() {
-    setOpen(false)
+    onOpenChange(false)
   }
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
+    <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            aria-label="Open navigation menu"
-          />
-        }
-      >
-        <Menu className="size-5" />
-      </SheetTrigger>
+        render={children as React.ReactElement}
+      />
 
       <SheetContent side="right" className="w-80">
         <SheetHeader>
@@ -50,7 +51,7 @@ export function MobileNav() {
           className="flex flex-col gap-1 px-4"
           aria-label="Mobile navigation"
         >
-          {NAV_LINKS.map((link) => (
+          {filteredLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}

@@ -374,20 +374,20 @@ export default function MbbsKazakhstanPage() {
             <div className="overflow-hidden rounded-lg border border-border bg-white">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-primary hover:bg-primary">
-                    <TableHead className="text-primary-foreground font-semibold">
+                  <TableRow className="bg-[#0A1F44] hover:bg-[#0A1F44]">
+                    <TableHead className="text-white font-semibold">
                       Factor
                     </TableHead>
-                    <TableHead className="text-primary-foreground font-semibold">
+                    <TableHead className="text-white font-semibold">
                       Kazakhstan
                     </TableHead>
-                    <TableHead className="text-primary-foreground font-semibold">
+                    <TableHead className="text-white font-semibold">
                       Russia
                     </TableHead>
-                    <TableHead className="text-primary-foreground font-semibold">
+                    <TableHead className="text-white font-semibold">
                       Kyrgyzstan
                     </TableHead>
-                    <TableHead className="text-primary-foreground font-semibold">
+                    <TableHead className="text-white font-semibold">
                       Georgia
                     </TableHead>
                   </TableRow>
@@ -566,17 +566,17 @@ export default function MbbsKazakhstanPage() {
             <div className="overflow-hidden rounded-lg border border-border bg-white">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-primary hover:bg-primary">
-                    <TableHead className="text-primary-foreground font-semibold">
+                  <TableRow className="bg-[#0A1F44] hover:bg-[#0A1F44]">
+                    <TableHead className="text-white font-semibold">
                       Year
                     </TableHead>
-                    <TableHead className="text-primary-foreground text-right font-semibold">
+                    <TableHead className="text-white text-right font-semibold">
                       Tuition (USD)
                     </TableHead>
-                    <TableHead className="text-primary-foreground text-right font-semibold">
+                    <TableHead className="text-white text-right font-semibold">
                       Hostel (USD)
                     </TableHead>
-                    <TableHead className="text-primary-foreground text-right font-semibold">
+                    <TableHead className="text-white text-right font-semibold">
                       Total (USD)
                     </TableHead>
                   </TableRow>

@@ -441,33 +441,33 @@ export default function AdmissionPage() {
             <div className="overflow-hidden rounded-lg border border-border bg-white">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-primary hover:bg-primary">
-                    <TableHead className="text-primary-foreground font-semibold">
+                  <TableRow className="bg-[#0A1F44] hover:bg-[#0A1F44]">
+                    <TableHead className="text-white font-semibold">
                       Component
                     </TableHead>
-                    <TableHead className="text-primary-foreground text-right font-semibold">
+                    <TableHead className="text-white text-right font-semibold">
                       USD
                     </TableHead>
-                    <TableHead className="text-primary-foreground text-right font-semibold">
+                    <TableHead className="text-white text-right font-semibold">
                       INR
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {FEE_ROWS.map((row) => (
-                    <TableRow key={row.component}>
+                    <TableRow key={row.component} className={row.bold ? "bg-[#C9A227]/5 border-l-4 border-l-[#C9A227]" : ""}>
                       <TableCell
-                        className={row.bold ? "font-semibold" : undefined}
+                        className={row.bold ? "font-bold text-[#0A1F44]" : undefined}
                       >
                         {row.component}
                       </TableCell>
                       <TableCell
-                        className={`text-right ${row.bold ? "text-gold font-semibold" : ""}`}
+                        className={`text-right ${row.bold ? "text-[#0A1F44] font-bold" : ""}`}
                       >
                         {row.usd}
                       </TableCell>
                       <TableCell
-                        className={`text-right ${row.bold ? "text-gold font-semibold" : ""}`}
+                        className={`text-right ${row.bold ? "text-[#0A1F44] font-bold text-lg" : ""}`}
                       >
                         {row.inr}
                       </TableCell>

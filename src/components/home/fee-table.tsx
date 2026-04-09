@@ -1,4 +1,5 @@
 import { SectionHeader } from "@/components/shared/section-header"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import {
   Table,
   TableBody,
@@ -38,37 +39,41 @@ export function FeeTable() {
           subtitle="Complete fee breakdown for MBBS at Kokshetau State University. What you see is what you pay."
         />
 
+        <AnimateOnScroll>
         <div className="mx-auto max-w-2xl">
-          <div className="overflow-hidden rounded-lg border border-border bg-white">
+          <div className="overflow-hidden rounded-lg border border-border bg-white shadow-lg">
             <Table>
               <TableHeader>
-                <TableRow className="bg-primary hover:bg-primary">
-                  <TableHead className="text-primary-foreground font-semibold">
+                <TableRow className="bg-navy-dark hover:bg-navy-dark">
+                  <TableHead className="text-white font-semibold">
                     Component
                   </TableHead>
-                  <TableHead className="text-primary-foreground text-right font-semibold">
+                  <TableHead className="text-white text-right font-semibold">
                     USD
                   </TableHead>
-                  <TableHead className="text-primary-foreground text-right font-semibold">
+                  <TableHead className="text-white text-right font-semibold">
                     INR
                   </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {fees.map((row) => (
-                  <TableRow key={row.component}>
+                  <TableRow
+                    key={row.component}
+                    className={row.bold ? "bg-gold/5 border-l-4 border-l-gold" : undefined}
+                  >
                     <TableCell
-                      className={row.bold ? "font-semibold" : undefined}
+                      className={row.bold ? "font-bold text-foreground" : undefined}
                     >
                       {row.component}
                     </TableCell>
                     <TableCell
-                      className={`text-right ${row.bold ? "text-gold font-semibold" : ""}`}
+                      className={`text-right ${row.bold ? "text-gold font-bold text-lg" : ""}`}
                     >
                       {row.usd}
                     </TableCell>
                     <TableCell
-                      className={`text-right ${row.bold ? "text-gold font-semibold" : ""}`}
+                      className={`text-right ${row.bold ? "text-gold font-bold text-lg" : ""}`}
                     >
                       {row.inr}
                     </TableCell>
@@ -90,6 +95,7 @@ export function FeeTable() {
             </Button>
           </div>
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   )

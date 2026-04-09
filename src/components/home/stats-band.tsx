@@ -1,4 +1,5 @@
 import { StatBlock } from "@/components/shared/stat-block"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 
 const stats = [
   { value: 62, suffix: "+", label: "Years of Legacy" },
@@ -11,11 +12,13 @@ export function StatsBand() {
   return (
     <section className="bg-navy-gradient py-12 md:py-16">
       <div className="container-brand">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
-          {stats.map((stat) => (
-            <StatBlock key={stat.label} {...stat} />
-          ))}
-        </div>
+        <AnimateOnScroll>
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
+            {stats.map((stat) => (
+              <StatBlock key={stat.label} {...stat} />
+            ))}
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   )

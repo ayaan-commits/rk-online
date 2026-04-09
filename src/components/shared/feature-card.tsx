@@ -26,7 +26,7 @@ export function FeatureCard({
       <div className="bg-gold/10 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full">
         <IconComponent className="text-gold h-6 w-6" />
       </div>
-      <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">
+      <h3 className="font-heading text-foreground mb-2 text-lg font-bold">
         {title}
       </h3>
       <p className="text-muted-foreground text-sm leading-relaxed">

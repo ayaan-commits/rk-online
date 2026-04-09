@@ -53,7 +53,10 @@ export function StatBlock({ value, suffix = "", label, className }: StatBlockPro
 
   return (
     <div ref={ref} className={cn("text-center", className)}>
-      <span className="font-heading text-gold text-4xl font-bold md:text-5xl">
+      <span
+        className="font-heading text-gold text-5xl font-bold md:text-6xl"
+        style={{ textShadow: '0 2px 10px rgba(201,162,39,0.3)' }}
+      >
         {count.toLocaleString()}
         {suffix}
       </span>

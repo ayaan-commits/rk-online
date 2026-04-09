@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { SectionHeader } from "@/components/shared/section-header"
 import { Button } from "@/components/ui/button"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import {
   MessageSquare,
   FileSearch,
@@ -61,26 +62,28 @@ export function ProcessTimeline() {
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-6 md:grid-cols-5">
             {steps.map(({ icon: Icon, step, title, description, timeline }) => (
-              <div key={step} className="group relative text-center">
-                {/* Connector line (hidden on first, hidden on mobile) */}
-                {step > 1 && (
-                  <div className="bg-border absolute left-0 top-8 hidden h-[2px] w-full -translate-x-1/2 md:block" />
-                )}
+              <AnimateOnScroll key={step} delay={(step - 1) * 0.1}>
+                <div className="group relative text-center">
+                  {/* Connector line (hidden on first, hidden on mobile) */}
+                  {step > 1 && (
+                    <div className="bg-border absolute left-0 top-8 hidden h-[2px] w-full -translate-x-1/2 md:block" />
+                  )}
 
-                <div className="relative z-10 mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-white shadow-sm transition-transform group-hover:scale-110">
-                  <Icon className="text-gold h-7 w-7" />
+                  <div className="relative z-10 mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold bg-white shadow-sm transition-transform group-hover:scale-110">
+                    <Icon className="text-gold h-7 w-7" />
+                  </div>
+
+                  <span className="text-gold mb-1 block text-xs font-bold uppercase tracking-wider">
+                    {timeline}
+                  </span>
+                  <h3 className="font-heading text-foreground mb-1 text-sm font-bold">
+                    {title}
+                  </h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed">
+                    {description}
+                  </p>
                 </div>
-
-                <span className="text-gold mb-1 block text-xs font-semibold uppercase tracking-wider">
-                  {timeline}
-                </span>
-                <h3 className="font-heading text-foreground mb-1 text-sm font-semibold">
-                  {title}
-                </h3>
-                <p className="text-muted-foreground text-xs leading-relaxed">
-                  {description}
-                </p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

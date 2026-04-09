@@ -1,6 +1,7 @@
 "use client"
 
 import { SectionHeader } from "@/components/shared/section-header"
+import { AnimateOnScroll } from "@/components/shared/animate-on-scroll"
 import { TestimonialCard } from "@/components/shared/testimonial-card"
 import {
   Carousel,
@@ -79,26 +80,28 @@ export function Testimonials() {
           subtitle="Real experiences from Indian MBBS students at Kokshetau State University."
         />
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="mx-auto max-w-5xl"
-        >
-          <CarouselContent className="-ml-4">
-            {placeholderTestimonials.map((testimonial) => (
-              <CarouselItem
-                key={testimonial.name}
-                className="pl-4 md:basis-1/2 lg:basis-1/3"
-              >
-                <TestimonialCard testimonial={testimonial} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="-left-4 hidden md:flex" />
-          <CarouselNext className="-right-4 hidden md:flex" />
-        </Carousel>
+        <AnimateOnScroll>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="mx-auto max-w-5xl"
+          >
+            <CarouselContent className="-ml-4">
+              {placeholderTestimonials.map((testimonial) => (
+                <CarouselItem
+                  key={testimonial.name}
+                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                >
+                  <TestimonialCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="-left-4 hidden md:flex" />
+            <CarouselNext className="-right-4 hidden md:flex" />
+          </Carousel>
+        </AnimateOnScroll>
       </div>
     </section>
   )
