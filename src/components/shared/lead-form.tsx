@@ -81,6 +81,7 @@ export function LeadForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
+        aria-label="Lead inquiry form"
         className={cn("space-y-4", className)}
       >
         {/* Honeypot field for spam protection */}

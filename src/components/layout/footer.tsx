@@ -159,7 +159,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-sm text-white/40">
+                <span className="text-sm text-white/60">
                   More coming soon
                 </span>
               </li>
@@ -214,7 +214,7 @@ export function Footer() {
 
         {/* Row 3: Copyright */}
         <Separator className="my-8 bg-white/10" />
-        <p className="text-center text-sm text-white/50">
+        <p className="text-center text-sm text-white/70">
           &copy; 2026 RK Online. All rights reserved.
         </p>
       </div>

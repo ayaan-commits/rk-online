@@ -293,14 +293,12 @@ export default function AdmissionPage() {
               counseling, and zero hidden costs.
             </p>
             <Button
-              asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+              render={<Link href="#apply-form" />}
             >
-              <Link href="#apply-form">
-                Start Your Application
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              Start Your Application
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -415,7 +413,7 @@ export default function AdmissionPage() {
                             <span className="bg-navy text-primary-foreground inline-flex h-6 items-center rounded-full px-2.5 text-xs font-semibold">
                               Step {step}
                             </span>
-                            <span className="text-gold text-xs font-semibold uppercase tracking-wider">
+                            <span className="text-gold-text text-xs font-semibold uppercase tracking-wider">
                               {timeline}
                             </span>
                           </div>
@@ -512,7 +510,7 @@ export default function AdmissionPage() {
                           {row.when}
                         </TableCell>
                         <TableCell>{row.what}</TableCell>
-                        <TableCell className="text-gold text-right font-semibold">
+                        <TableCell className="text-gold-text text-right font-semibold">
                           {row.amount}
                         </TableCell>
                       </TableRow>
@@ -633,7 +631,7 @@ export default function AdmissionPage() {
 
                     {/* Content */}
                     <div className="flex-1 pb-2">
-                      <span className="text-gold text-xs font-semibold uppercase tracking-wider">
+                      <span className="text-gold-text text-xs font-semibold uppercase tracking-wider">
                         {month}
                       </span>
                       <h3 className="font-heading text-foreground mt-1 text-lg font-semibold">

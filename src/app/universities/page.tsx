@@ -102,11 +102,9 @@ export default function UniversitiesPage() {
               </CardContent>
 
               <CardFooter>
-                <Button asChild className="w-full">
-                  <Link href={`/universities/${kokshetau.slug}`}>
-                    View Details
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                <Button className="w-full" render={<Link href={`/universities/${kokshetau.slug}`} />}>
+                  View Details
+                  <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
               </CardFooter>
             </Card>
@@ -142,22 +140,20 @@ export default function UniversitiesPage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Button
-                asChild
                 size="lg"
                 className="bg-gold hover:bg-gold-dark h-12 px-8 text-base font-semibold text-white"
+                render={<Link href="/admission" />}
               >
-                <Link href="/admission">Get Free Counseling</Link>
+                Get Free Counseling
               </Button>
               <Button
-                asChild
                 variant="outline"
                 size="lg"
                 className="h-12 border-white/30 px-8 text-base text-white hover:bg-white/10"
+                render={<a href={`tel:${SITE.phone}`} />}
               >
-                <a href={`tel:${SITE.phone}`}>
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call Us
-                </a>
+                <Phone className="mr-2 h-4 w-4" />
+                Call Us
               </Button>
             </div>
           </AnimateOnScroll>

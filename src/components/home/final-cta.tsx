@@ -21,24 +21,20 @@ export function FinalCta() {
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
-              asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-navy font-semibold btn-fill-effect"
+              render={<Link href="/contact" />}
             >
-              <Link href="/contact">
-                Book Free Counseling
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              Book Free Counseling
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
-              asChild
               size="lg"
               className="!bg-white !text-black !border-white hover:!bg-gray-100 font-medium"
+              render={<a href={`tel:${SITE.phone}`} />}
             >
-              <a href={`tel:${SITE.phone}`}>
-                <Phone className="mr-2 h-4 w-4" />
-                Call {SITE.phone}
-              </a>
+              <Phone className="mr-2 h-4 w-4" />
+              Call {SITE.phone}
             </Button>
           </div>
         </AnimateOnScroll>

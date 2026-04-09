@@ -23,7 +23,7 @@ export function FloatingCtas() {
       {/* Mobile Apply Button */}
       <Link
         href="/contact"
-        className="fixed bottom-6 left-6 z-40 inline-flex items-center rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-navy shadow-lg transition-colors hover:bg-gold-dark md:hidden"
+        className="fixed bottom-6 left-6 z-40 inline-flex items-center rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-navy shadow-lg transition-colors hover:bg-gold-dark focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 md:hidden"
       >
         Apply Now &rarr;
       </Link>

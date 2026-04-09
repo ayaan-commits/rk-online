@@ -72,7 +72,7 @@ export function ProcessTimeline() {
                       <Icon className="text-gold h-7 w-7 group-hover:scale-110 transition-transform" />
                     </div>
 
-                    <span className="text-gold mb-1 block text-xs font-bold uppercase tracking-wider">
+                    <span className="text-gold-text mb-1 block text-xs font-bold uppercase tracking-wider">
                       {timeline}
                     </span>
                     <h3 className="font-heading text-foreground mb-1 text-sm font-bold">
@@ -90,14 +90,12 @@ export function ProcessTimeline() {
 
         <div className="mt-12 text-center">
           <Button
-            asChild
             size="lg"
             className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+            render={<Link href="/contact" />}
           >
-            <Link href="/contact">
-              Start Step 1 — Book Free Counseling
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            Start Step 1 — Book Free Counseling
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>

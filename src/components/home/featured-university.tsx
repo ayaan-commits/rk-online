@@ -57,11 +57,9 @@ export function FeaturedUniversity() {
                 </li>
               ))}
             </ul>
-            <Button asChild size="lg" className="font-semibold">
-              <Link href="/universities/kokshetau">
-                Explore Kokshetau in Detail
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button size="lg" className="font-semibold" render={<Link href="/universities/kokshetau" />}>
+              Explore Kokshetau in Detail
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </AnimateOnScroll>
         </div>

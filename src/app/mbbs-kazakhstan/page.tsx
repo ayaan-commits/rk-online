@@ -306,14 +306,12 @@ export default function MbbsKazakhstanPage() {
               </div>
 
               <Button
-                asChild
                 size="lg"
                 className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+                render={<Link href="#apply" />}
               >
-                <Link href="#apply">
-                  Apply for 2026 Intake
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                Apply for 2026 Intake
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
 
@@ -404,7 +402,7 @@ export default function MbbsKazakhstanPage() {
                       <TableCell className="font-medium">
                         {row.metric}
                       </TableCell>
-                      <TableCell className="text-gold font-semibold">
+                      <TableCell className="text-gold-text font-semibold">
                         {row.kazakhstan}
                       </TableCell>
                       <TableCell>{row.russia}</TableCell>
@@ -492,7 +490,7 @@ export default function MbbsKazakhstanPage() {
                         <Icon className="text-gold h-6 w-6" />
                       </div>
                       <div>
-                        <p className="text-gold mb-1 text-xs font-semibold uppercase tracking-wider">
+                        <p className="text-gold-text mb-1 text-xs font-semibold uppercase tracking-wider">
                           Step {step}
                         </p>
                         <h3 className="font-heading text-foreground mb-1 text-lg font-semibold">
@@ -538,7 +536,7 @@ export default function MbbsKazakhstanPage() {
                 <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {KOKSHETAU_STATS.map(({ label, value }) => (
                     <div key={label}>
-                      <p className="text-gold font-heading text-lg font-bold">
+                      <p className="text-gold-text font-heading text-lg font-bold">
                         {value}
                       </p>
                       <p className="text-muted-foreground text-xs">{label}</p>
@@ -553,11 +551,9 @@ export default function MbbsKazakhstanPage() {
                   With over 500 Indian students, you will never feel far from
                   home.
                 </p>
-                <Button asChild size="lg" className="font-semibold">
-                  <Link href="/universities/kokshetau">
-                    Explore Kokshetau in Detail
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                <Button size="lg" className="font-semibold" render={<Link href="/universities/kokshetau" />}>
+                  Explore Kokshetau in Detail
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 </CardContent>
               </Card>
@@ -605,7 +601,7 @@ export default function MbbsKazakhstanPage() {
                         {row.tuition}
                       </TableCell>
                       <TableCell className="text-right">{row.hostel}</TableCell>
-                      <TableCell className="text-gold text-right font-semibold">
+                      <TableCell className="text-gold-text text-right font-semibold">
                         {row.total}
                       </TableCell>
                     </TableRow>
@@ -620,7 +616,7 @@ export default function MbbsKazakhstanPage() {
                     <TableCell className="text-right font-bold">
                       $4,800
                     </TableCell>
-                    <TableCell className="text-gold text-right font-bold">
+                    <TableCell className="text-gold-text text-right font-bold">
                       $27,600 (~₹23L)
                     </TableCell>
                   </TableRow>
@@ -684,23 +680,19 @@ export default function MbbsKazakhstanPage() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button
-                asChild
                 size="lg"
                 className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+                render={<Link href="/contact" />}
               >
-                <Link href="/contact">
-                  Apply Now &mdash; Free Counseling
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                Apply Now &mdash; Free Counseling
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
-                asChild
                 size="lg"
                 className="!bg-white !text-black !border-white hover:!bg-gray-100 font-medium"
+                render={<a href={`tel:${SITE.phone}`} />}
               >
-                <a href={`tel:${SITE.phone}`}>
-                  Call {SITE.phone}
-                </a>
+                Call {SITE.phone}
               </Button>
             </div>
           </AnimateOnScroll>

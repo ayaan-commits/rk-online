@@ -79,7 +79,7 @@ export default function BlogPage() {
                             {post.readingTime}
                           </span>
                         </div>
-                        <span className="text-gold mt-3 inline-flex items-center text-sm font-medium">
+                        <span className="text-gold-text mt-3 inline-flex items-center text-sm font-medium">
                           Read more
                           <ArrowRight className="ml-1 h-3 w-3" />
                         </span>

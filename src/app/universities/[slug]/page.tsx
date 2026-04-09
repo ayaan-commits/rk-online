@@ -664,7 +664,7 @@ function FaqTab({ uni }: { uni: University }) {
 function RankingCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border border-border bg-white p-4 text-center">
-      <p className="font-heading text-gold text-2xl font-bold">{value}</p>
+      <p className="font-heading text-gold-text text-2xl font-bold">{value}</p>
       <p className="text-muted-foreground mt-1 text-xs font-medium">{label}</p>
     </div>
   )

@@ -24,7 +24,7 @@ export function SectionHeader({
       )}
     >
       {kicker && (
-        <span className="text-gold mb-3 block text-sm font-semibold uppercase tracking-wider">
+        <span className="text-gold-text mb-3 block text-sm font-semibold uppercase tracking-wider">
           {kicker}
         </span>
       )}

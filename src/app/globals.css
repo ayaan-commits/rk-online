@@ -43,6 +43,7 @@
   --color-navy-dark: var(--brand-navy-dark);
   --color-gold: var(--brand-gold);
   --color-gold-dark: var(--brand-gold-dark);
+  --color-gold-text: var(--brand-gold-text);
   --color-cream: var(--brand-cream);
   --color-success: var(--brand-success);
   --radius-sm: calc(var(--radius) * 0.6);
@@ -60,6 +61,7 @@
   --brand-navy-dark: oklch(0.15 0.06 257);       /* #061433 darker navy */
   --brand-gold: oklch(0.74 0.13 85);             /* #C9A227 muted gold */
   --brand-gold-dark: oklch(0.62 0.11 80);        /* #A8851B darker gold */
+  --brand-gold-text: oklch(0.52 0.12 80);        /* ~#7D6914 WCAG AA safe gold for text on white */
   --brand-cream: oklch(0.97 0.01 85);            /* #FAF8F3 warm off-white */
   --brand-success: oklch(0.62 0.18 145);         /* #16A34A deep green */
 

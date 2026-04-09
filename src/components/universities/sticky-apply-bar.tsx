@@ -44,14 +44,12 @@ export function StickyApplyBar({ universityShortName }: StickyApplyBarProps) {
             </a>
           </div>
           <Button
-            asChild
             size="lg"
-            className="bg-gold hover:bg-gold-dark h-11 shrink-0 px-6 text-sm font-semibold text-white"
+            className="bg-gold hover:bg-gold-dark h-11 shrink-0 px-6 text-sm font-semibold text-navy"
+            render={<Link href="/admission" />}
           >
-            <Link href="/admission">
-              Apply to {universityShortName}
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
+            Apply to {universityShortName}
+            <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
       </div>

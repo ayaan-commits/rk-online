@@ -68,12 +68,12 @@ export function FeeTable() {
                       {row.component}
                     </TableCell>
                     <TableCell
-                      className={`text-right ${row.bold ? "text-gold font-bold text-lg" : ""}`}
+                      className={`text-right ${row.bold ? "text-gold-text font-bold text-lg" : ""}`}
                     >
                       {row.usd}
                     </TableCell>
                     <TableCell
-                      className={`text-right ${row.bold ? "text-gold font-bold text-lg" : ""}`}
+                      className={`text-right ${row.bold ? "text-gold-text font-bold text-lg" : ""}`}
                     >
                       {row.inr}
                     </TableCell>

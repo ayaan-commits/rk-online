@@ -164,13 +164,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 Free counseling from seniors who actually studied there.
               </p>
               <Button
-                asChild
                 className="bg-gold hover:bg-gold-dark text-navy font-semibold"
+                render={<Link href="/contact" />}
               >
-                <Link href="/contact">
-                  Get Free Counseling
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                Get Free Counseling
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </AnimateOnScroll>

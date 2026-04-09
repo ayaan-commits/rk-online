@@ -68,24 +68,20 @@ export function Hero() {
 
             <div className="mb-8 flex flex-wrap gap-4">
               <Button
-                asChild
                 size="lg"
                 className="bg-gold hover:bg-gold-dark text-navy font-semibold btn-fill-effect"
+                render={<Link href="/contact" />}
               >
-                <Link href="/contact">
-                  Apply for 2026 Intake
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                Apply for 2026 Intake
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
-                asChild
                 size="lg"
                 className="!bg-white !text-black !border-white hover:!bg-gray-100 font-medium"
+                render={<Link href="#fees" />}
               >
-                <Link href="#fees">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Fee Structure
-                </Link>
+                <Download className="mr-2 h-4 w-4" />
+                Download Fee Structure
               </Button>
             </div>
 
